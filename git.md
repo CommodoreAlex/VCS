@@ -56,3 +56,50 @@
 |`git branch -d master`|Delete `master` locally after migrating to `main`.|
 
 ---
+
+## Most Common Workflow After Establishing SSH Keys
+
+See which files have been modified:
+```bash
+git status
+```
+
+Then, add all files:
+```bash
+# This needs to be run from the root directory of your GIT repository
+git add .
+```
+
+Commit your changes with a message describing your update:
+```bash
+git commit -m "Updated MiniGit functionality"
+```
+
+Push your changes to the repository:
+```bash
+git push origin main
+```
+
+(Replace `main` with the branch you're working in.)
+
+Go to your GitHub repository and check if your changes are reflected.
+
+#### If you receive errors when pushing changes to the repo
+
+Pull the latest changes from GitHub:
+```bash
+git pull origin main --rebase
+```
+
+`--rebase` will ensure your local changes apply **ON TOP** of the latest remote updates.
+
+Resolve any merge conflicts if any appear:
+```bash
+git add <conflicted file>
+git rebase --continue
+```
+
+Push your changes after syncing:
+```
+git push origin main
+```
